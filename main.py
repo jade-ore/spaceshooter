@@ -4,6 +4,7 @@ from random import randint, uniform
 
 class Window:
     def __init__(self):
+           
         self.width = 1280
         self.height = 720
 class Player(pygame.sprite.Sprite):
@@ -124,8 +125,6 @@ def displayScore():
     currentTime = pygame.time.get_ticks() // 1000
     textSurf = font.render(str(currentTime), True, (240, 240, 240))
     textRect = textSurf.get_frect(midbottom = (window.width // 2, window.height - 50))
-    margin = 10
-    marginVector = pygame.math.Vector2(margin, -margin)
     pygame.draw.rect(screen, (240,240,240), textRect.inflate(30, 10).move(0, -10), 5, 10)
     screen.blit(textSurf, textRect)
     
@@ -190,7 +189,6 @@ while running:
 
     # check collisions
     if pygame.sprite.spritecollide(player, meteorSprites, True, pygame.sprite.collide_mask):
-        
         running = False
 
     # update
